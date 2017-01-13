@@ -21,10 +21,10 @@ import json
 class RequestHandler(http.server.SimpleHTTPRequestHandler):
 
   # sous-répertoire racine des documents statiques
-  static_dir = '/client'
+  static_dir = 'C:/Users/Caro/Documents/Github/Bretagne'
 
   # version du serveur
-  server_version = 'ProjetD_hydrometrie/serveur_projet.py/0.1'
+  server_version = 'C:/Users/Caro/Documents/Github/Bretagne/serveur_projet.py/0.1'
 
   # on surcharge la méthode qui traite les requêtes GET
   def do_GET(self):
@@ -140,5 +140,5 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
 
 
 # instanciation et lancement du serveur
-httpd = socketserver.TCPServer(("", 8083), RequestHandler)
+httpd = socketserver.TCPServer(("", 8085), RequestHandler)
 httpd.serve_forever()
