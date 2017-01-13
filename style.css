@@ -1,0 +1,56 @@
+﻿body {
+  background-color: #f0f0ea;
+  font-family: 'Trebuchet MS';
+  padding: 2em;
+}
+table {
+  border-collapse: collapse;
+  border: 1px solid #A0A0A0;
+}
+th {
+  background-color: #A0A0A0;
+  color: #f0f0ea; 
+}
+th, td {
+  border-left: 1px solid #A0A0A0;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+th + th {
+  border-left: 1px solid #f0f0ea;
+}
+td.date {
+  text-align: center;
+}
+input, textarea {
+  font-family: monospace;
+  padding: 2px 0.5em;
+  width: 5em;
+  font-size: 1.2em;
+  line-height: 1.33em;
+  color: #666;
+  margin-top: 5px;
+}
+.button {
+  border: 3px outset #444;
+  background-color: #888;
+  padding: 5px 0.5em;
+  border-radius: 3px;
+  display: inline-block;
+  margin: 1em 0;
+  /* position: absolute; */
+  color: #eee;
+  text-shadow: #000 -1px -1px 0;
+  right: calc(100% - 8em - 3px);
+}
+/*
+a {
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+}
+*/
+a.delete:hover {
+  color: red;
+}
+#map { height: 400px; width: 600px;}
