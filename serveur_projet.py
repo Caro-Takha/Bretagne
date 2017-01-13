@@ -21,10 +21,10 @@ import json
 class RequestHandler(http.server.SimpleHTTPRequestHandler):
 
   # sous-répertoire racine des documents statiques
-  static_dir = 'C:/Users/Caro/Documents/Github/Bretagne'
+  static_dir = '/client'
 
   # version du serveur
-  server_version = 'C:/Users/Caro/Documents/Github/Bretagne/serveur_projet.py/0.1'
+  server_version = '/Serveur_projet/serveur_projet.py/0.1'
 
   # on surcharge la méthode qui traite les requêtes GET
   def do_GET(self):
@@ -34,18 +34,20 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
     if self.path_info[0] == "location":
         data=[]
         for i in range(175):
-            data = data.append({'nom station': r[i][0] ,'lat':r[i][2],'lon':r[i[1]]}) #importer code cécile
+            data.append({'id':i, 'name': r[i][0] ,'lat':r[i][2],'lon':r[i][1]}) #importer code cécile
         self.send_json(data)
 #On ferra ça quand ça marchera ! (c'est le blabla écrit en dessous de la carte)
-#    # requete description - retourne la description du lieu dont on passe l'id en paramètre dans l'URL
-#    elif self.path_info[0] == "description":
-#      data=[{'id':1,'desc':"Il ne faut pas être <b>trop grand</b> pour marcher dans cette rue qui passe sous une maison"},
-#            {'id':2,'desc':"Cette rue est <b>si étroite</b> qu'on touche les 2 côtés en tendant les bras !"},
-#            {'id':3,'desc':"Ce jardin <b>méconnu</b> évoque le palais idéal du Facteur Cheval"}]
-#      for c in data:
-#        if c['id'] == int(self.path_info[1]):
-#          self.send_json(c)
-#          break
+    # requete description - retourne la description du lieu dont on passe l'id en paramètre dans l'URL
+    elif self.path_info[0] == "description":
+        data2=[]        
+        for i in range(175):
+            data2.append({'id':i,'desc':'a'})
+        for c in data2:
+            if c['id'] == int(self.path_info[1]):
+                self.send_json(c)
+                break
+      
+          
 
     # requête générique
     elif self.path_info[0] == "service":
@@ -140,5 +142,5 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
 
 
 # instanciation et lancement du serveur
-httpd = socketserver.TCPServer(("", 8085), RequestHandler)
+httpd = socketserver.TCPServer(("", 8100), RequestHandler)
 httpd.serve_forever()
