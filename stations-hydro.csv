@@ -1,0 +1,176 @@
+CdStationHydro;LbStationHydro;Lng;Lat
+I9122020;L'Airon a Landivy;-1.074805;48.480224
+J0014010;Le Nancon a Lecousse [Pont aux Anes];-1.196744;48.375621
+J0121510;Le Couesnon a Romazy;-1.503887;48.366003
+J0144010;La Loysance a Saint-Ouen-la-Rouerie;-1.435907;48.427929
+J0144210;La Loysance a Saint-Etienne-en-Cogles;-1.323278;48.405862
+J0323010;Le Guyoult a Epiniac;-1.689011;48.52601
+J0407610;Le Meleuc a Plerguer;-1.860854;48.512695
+J0611610;La Rance a Saint-Jouan-de-l'Isle;-2.167019;48.254062
+J0621610;La Rance a Guenroc [Rophemel];-2.058806;48.316223
+J0626610;Le Neal a Medreac;-2.043135;48.272682
+J1004510;Le Fremur a Tremereuc [La Crochais];-2.080868;48.565387
+J1004520;Le Fremur a Pleslin-Trigavou;-2.074742;48.550553
+J1103010;L'Arguenon a Jugon-les-Lacs;-2.333271;48.402743
+J1114010;La Rosette a Megrit;-2.248437;48.364781
+J1123010;L'Arguenon a Pledeliac [Tournemine];-2.322566;48.459121
+J1313010;Le Gouessant a Andel;-2.567823;48.484258
+J1324010;L'Evron a Coetmieux;-2.605924;48.48983
+J1405310;L'Urne a Pledran;-2.752132;48.466574
+J1407110;Le Creac'h a Pledran;-2.751708;48.468061
+J1513010;Le Gouet a Saint-Julien;-2.833214;48.446625
+J1513020;Le Gouet a Ploufragan [St-Barthelemy];-2.827257;48.510168
+J1523010;Le Gouet a Ploufragan [Pont Noir];-2.841892;48.490418
+J1524010;La Maudouve a Saint-Donan;-2.848335;48.467422
+J1711710;Le Trieux a Saint-Pever;-3.114635;48.483193
+J1721710;Le Trieux a Tregonneau [Pont Broc'hen];-3.143165;48.61206
+J1721720;Le Trieux a Saint-Clet [Moulin-de-Chateaulin];-3.166775;48.689576
+J1721730;Le Trieux a Saint-Clet [Rocher du Corbeau];-3.157731;48.671623
+J1803010;Le Leff a Boqueho;-2.95125;48.482255
+J1813010;Le Leff a Quemper-Guezennec;-3.067743;48.705549
+J2023010;Le Jaudy a Mantallot;-3.270207;48.714096
+J2034010;Le Guindy a Plouguiel;-3.253864;48.783504
+J2213110;Le Guic a Guerlesquin [Kerret];-3.587301;48.503592
+J2213120;Le Guic a Guerlesquin [Trogoredec];-3.563299;48.52286
+J2233010;Le Leguer a Belle-Isle-en-Terre;-3.397289;48.547964
+J2233020;Le Leguer a Pluzunet;-3.413635;48.635771
+J2314910;Le Yar a Treduder;-3.577545;48.646696
+J2404010;Le Douron au Ponthou;-3.64625;48.556201
+J2514010;Le Dourduff a Garlan;-3.768072;48.608035
+J2603010;Le Jarlot a Plougonven;-3.800093;48.566677
+J2605410;Le Tromorgant a Plougonven;-3.79725;48.566762
+J2614010;Le Queffleuth a Plourin-les-Morlaix [Lesquifiou];-3.827635;48.546975
+J2614020;Le Queffleuth a Plourin-les-Morlaix [Les Trois Chenes];-3.837274;48.567788
+J2723010;La Penze a Taule [Penhoat];-3.923674;48.585751
+J3014310;L'Horn a Mespaul [Pont Milin];-4.024855;48.626389
+J3014320;L'Horn a Saint-Pol-de-Leon;-4.019188;48.675727
+J3014330;L'Horn a Mespaul [Kertanguy];-4.013982;48.604418
+J3024010;Le Guillec a Trezilide;-4.076506;48.615853
+J3104010;Le ruisseau de Kernic a Plouescat [Kerret];-4.17165;48.647835
+J3114010;Le Quillimadec a Plouider [Coatiguinou];-4.290552;48.585448
+J3204010;L'Aber Wrac'h a Ploudaniel [Roch-Huez];-4.344688;48.550317
+J3205710;L'Aber Wrac'h au Drennec;-4.361803;48.531041
+J3213010;L'Aber-Benoit a Plabennec [Taule];-4.420293;48.525759
+J3313010;L'Aber-Ildut a Plouarzel [Locronan Vian];-4.662304;48.44849
+J3323010;L'Aber Ildut a Plouarzel [Locronan-vian];-4.651627;48.442517
+J3335410;Le ruisseau de Kermorvan a Trebabu [La Haie];-4.720823;48.384231
+J3403010;L'Elorn a Sizun;-4.020782;48.389816
+J3403020;L'Elorn a Commana;-4.000416;48.38515
+J3404110;Le ruisseau de Mougau Bihan a Commana;-3.994357;48.39694
+J3413010;L'Elorn a la Roche-Maurice [Pont Ar Bled];-4.215684;48.469382
+J3413020;L'Elorn a Ploudiry [Kerfaven];-4.148638;48.485275
+J3413030;L'Elorn a Plouedern;-4.220124;48.469198
+J3424810;Le Tourous a Landerneau [amont];-4.277216;48.461733
+J3424820;Le Tourous a Landerneau [aval];-4.266954;48.453539
+J3514010;La Mignonne a Irvillac;-4.214753;48.386823
+J3601810;L'Aulne a Scrignac [Le Goask];-3.667712;48.389446
+J3611810;L'Aulne a Kergloff [Pont-de-Penity];-3.691885;48.275476
+J3624010;L'Ellez a Brennilis;-3.87228;48.354143
+J3713010;L'Hyeres a Trebrivan;-3.510334;48.321136
+J3733010;L'Hyeres a Saint-Hernin;-3.655231;48.223254
+J3801810;L'Aulne a Landeleau [Pont Triffen];-3.702363;48.219441
+J3811810;L'Aulne a Chateauneuf-du-Faou [Pont Pol ty Glass];-3.860705;48.165087
+J3821810;L'Aulne a Gouezec [Pont-Coblant];-3.986143;48.190367
+J3834010;La Douffine a Saint-Segal;-4.060747;48.260106
+J4014010;Le Goyen a Pont-Croix [Kermaria];-4.473261;48.03893
+J4124410;La Riviere de Pont-l'Abbe a Ploneour-Lanvern [Moulin Neuf];-4.236449;47.885849
+J4124420;La Riviere de Pont-l'Abbe a Ploneour-Lanvern [Tremillec];-4.24183;47.908558
+J4124430;La Riviere de Pont-l'Abbe a Tremeoc [Pen Enez];-4.229864;47.879514
+J4125720;Le Troyon a Ploneour-Lanvern [Ty Poes];-4.249725;47.907174
+J4201910;L'Odet a Leuhan [Pont-Orven];-3.816507;48.110456
+J4211910;L'Odet a Ergue-Gaberic [Treodet];-4.063635;48.006173
+J4211915;L'Odet a Quimper [Kervir];-4.079519;47.994204
+J4214510;Le Langelin a Briec;-3.987009;48.102906
+J4224010;Le Jet a Ergue-Gaberic;-4.014073;47.988866
+J4313010;Le Steir a Guengat;-4.146541;48.027138
+J4514010;Le Moros a Concarneau [PONT D22];-3.875108;47.883916
+J4515410;Le Styval a Concarneau [Pont Thouar];-3.884496;47.900295
+J4515420;Le Styval a Concarneau [Moulin de la Haie];-3.877808;47.888274
+J4614010;Le Ster Goz a Bannalec;-3.751818;47.907675
+J4623010;L'Aven a Pont-Aven [Bois d'Amour];-3.735785;47.860244
+J4623020;L'Aven a Pont-Aven [voie express];-3.734766;47.88494
+J4712010;L'Elle au Faouet;-3.476587;48.038929
+J4734010;L'Inam au Faouet [Pont Priant];-3.555951;48.047619
+J4742010;L'Elle a Arzano [Pont Ty Nadan];-3.469043;47.90416
+J4742015;L'Elle a Lanvenegen [Loge-coucou];-3.493808;47.985032
+J4803010;L'Isole a Scaer [Stang Boudilin];-3.671179;47.98786
+J4813010;L'Isole a Quimperle [Place Bremont d'Ars];-3.546187;47.87554
+J4902010;La Laita a Quimperle;-3.54406;47.865231
+J5102210;Le Scorff a Plouay [Pont Kerlo];-3.419385;47.905043
+J5202110;Le Blavet a Kerien [Kerlouet];-3.251059;48.391522
+J5205210;Le Lestolet a Kerien;-3.244541;48.387388
+J5212110;Le Blavet a Plounevez-Quintin [Pors Foret];-3.234076;48.324123
+J5212120;Le Blavet a Lanrivain;-3.248447;48.342271
+J5222110;Le Blavet a Gouarec;-3.177776;48.227087
+J5224010;Le Sulon a Sainte-Trephine;-3.152966;48.255794
+J5402110;Le Blavet a Laniscat [St HERVE];-3.158748;48.213251
+J5412110;Le Blavet a Mur-de-Bretagne [Guerledan];-3.01904;48.190407
+J5432110;Le Blavet a Neulliac [Le Porzo];-3.000838;48.113367
+J5606810;Le Coetdan a Guenin [Stimoes];-2.812938;47.97765
+J5613010;L'Evel a Guenin;-2.974528;47.900861
+J5618310;Le Fremeur a Guenin;-2.953465;47.937709
+J5618320;Le Fremeur a Plumeliau;-2.953575;47.938001
+J5704810;Le Coet-Organ a Quistinic [Kerdec];-3.201175;47.905433
+J5712130;Le Blavet a Languidic [Quellenec];-3.221744;47.830994
+J6213010;Le Loch a Brech;-2.990074;47.720625
+J6407110;Le Rohan a Saint-Ave [Guern];-2.790165;47.706319
+J6407120;Le Rohan inferieur a Vannes [Menimur];-2.770568;47.66829
+J6604410;Le Kervilly a Questembert;-2.490004;47.647924
+J7000610;La Vilaine a Bourgon;-1.058209;48.186435
+J7010610;La Vilaine a Vitre;-1.222842;48.122828
+J7010620;La Vilaine a Saint-M'Herve;-1.108438;48.144984
+J7010630;La Vilaine a Erbree [Rideux];-1.145107;48.143469
+J7024010;La Valiere a Erbree;-1.126476;48.108702
+J7024020;La Valiere a Argentre-du-Plessis;-1.165857;48.076847
+J7053010;La Cantache a Champeaux [Rabaud];-1.274192;48.136426
+J7060610;La Vilaine a Servon-sur-Vilaine;-1.465825;48.116976
+J7060620;La Vilaine a Chateaubourg;-1.403979;48.108045
+J7083110;Le Chevre a la Bouexiere;-1.498695;48.183119
+J7090610;La Vilaine a Cesson-Sevigne [Cesson];-1.609231;48.114479
+J7090630;La Vilaine a Cesson-Sevigne [Sevigne];-1.563545;48.123724
+J7103010;L'Ille a Montreuil-sur-Ille;-1.673311;48.296243
+J7114010;L'Illet a Chasne-sur-Illet;-1.574889;48.24727
+J7214010;La Flume a Pace;-1.779958;48.180517
+J7214050;La Flume a Pace;-2.504519;48.153872
+J7214080;La Flume a Pace [Inra];-1.779902;48.181528
+J7214090;La Flume a Pace;-1.779902;48.181528
+J7224010;Le Blosne a Chantepie;-1.640781;48.083134
+J7313010;Le Meu a Gael;-2.217007;48.126833
+J7353010;Le Meu a Montfort-sur-Meu [L'Abbaye];-1.94423;48.128463
+J7355010;Le Serein a Treffendel;-2.033606;48.048227
+J7356010;Le Careil a Monterfil;-1.986058;48.058691
+J7364210;La Cheze a Saint-Thurial;-1.950626;48.02579
+J7364220;La Cheze a Plelan-le-Grand [Enlevrier];-2.039934;48.008821
+J7373110;La Vaunoise a Saint-Gilles;-1.854199;48.139729
+J7483010;La Seiche a Bruz [Carce];-1.72225;48.019507
+J7500610;La Vilaine a Guichen [Le Boel];-1.754494;47.992954
+J7513010;Le Canut Nord a Maxent;-1.993525;47.995309
+J7523010;Le Canut Nord a Lassy [le Val];-1.855096;47.962736
+J7523020;Le Canut Nord a Lassy [Pont de Lassy];-1.879161;47.957827
+J7633010;Le Semnon a Bain-de-Bretagne;-1.629837;47.860236
+J7700610;La Vilaine a Guipry [Malon];-1.840832;47.796889
+J7803020;La Chere a Chateaubriant [Bere];-1.389691;47.718915
+J7824010;L'Aron a Grand-Fougeray [Bernardais];-1.69224;47.712578
+J7833010;La Chere a Pierric;-1.732347;47.701564
+J7833020;La Chere a Derval [Pont RN 137];-1.703474;47.700481
+J7953010;Le Don a Conquereuil [Les Rivieres];-1.74775;47.616122
+J7963010;Le Don a Guemene-Penfao [Juzet];-1.789096;47.622982
+J7973010;Le Canut Sud a Saint-Just;-1.979386;47.775986
+J8002310;L'Oust a Saint-Martin-des-Pres;-2.965289;48.321663
+J8022310;L'Oust a Hemonstoir;-2.816096;48.159808
+J8133010;Le Lie a la Prenessaye;-2.622586;48.201916
+J8143010;Le Lie a Plumieux [Pont de la Fosse];-2.651816;48.112731
+J8202310;L'Oust a Pleugriffet [La Tertraie];-2.640219;47.98514
+J8333010;Le Ninian a Taupont;-2.461783;47.938092
+J8363110;L'Yvel a Loyat;-2.368826;47.994575
+J8433010;La Claie a Saint-Jean-Brevelay;-2.702894;47.825779
+J8502310;L'Oust a Saint-Grave [Le Guelin];-2.256469;47.739341
+J8602410;L'Aff a Paimpont;-2.14324;47.982555
+J8632410;L'Aff a Quelneuc;-2.073796;47.829072
+J8653010;Le Combs a Maure-de-Bretagne;-1.954638;47.876489
+J8813010;L'Arz a Molac;-2.431756;47.716882
+J8823010;L'Arz a Pluherlin [Pont d'Arz];-2.337364;47.710703
+J9124410;Le Perche [Ruis de Clegreuc] au Gavre [le Bas-Luc];-1.745654;47.550934
+J9202510;L'Isac a Guenrouet [Melneuf];-1.922693;47.497419
+J9300610;La Vilaine a Rieux;-2.125835;47.580142
+J9320620;La Vilaine a Arzal [Maregraphe];-2.382167;47.500434
