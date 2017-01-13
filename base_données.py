@@ -72,16 +72,19 @@ r=c.fetchall()   # r est une liste de listes, chacune de ses sous listes contena
 # on suppose que les dates de début et de fin ont été rentrées, ainsi que le code de la station
 CodeStation=('I9122020',)
 
-jourDebut=(5,)
-moisDebut=(9,)
-anneeDebut=(2015,)
-jourFin=(7,)
-moisFin=(9,)
-anneeFin=(2015,)
+#jourDebut=(05,)
+#moisDebut=(09,)
+#anneeDebut=(2015,)
+#jourFin=(07,)
+#moisFin=(09,)
+#anneeFin=(2015,)
 
-
-c.execute('SELECT debit_donnee_validee_m3 FROM hydro_debit_histo WHERE (code_hydro=? AND annee<=? AND mois<=? AND jour<=? AND annee>=? AND mois>=? AND jour>=?',(CodeStation,anneeFin,moisFin,jourFin,anneeDebut,moisDebut,jourDebut,)))
+c.execute('SELECT debit_donnee_validee_m3 FROM hydro_debit_histo WHERE (jour="05" AND (code_hydro=? ',))(CodeStation))
 r=c.fetchall()
 print(r)
+c.execute('SELECT valeur_tres_faible,valeur_faible,valeur_forte,dixieme_module,debit_donnee_provisoire_m3,debit_donnee_validee_m3 FROM hydro_debit_histo WHERE code_hydro=? ',(CodeStation))
+r=c.fetchall()
+#print(r)
 #  AND annee<=anneeFin AND mois<=moisFin AND jour<=jourFin AND annee>=anneeDebut AND mois>=moisDebut AND jour>=dateDebut)valeur_tres_faible,valeur_faible,valeur_forte,dixieme_module,debit_donnee_provisoire_m3
 #c.execute('SELECT valeur_tres_faible,valeur_faible,valeur_forte,dixieme_module,debit_donnee_provisoire_m3,debit_donnee_validee_m3 FROM hydro_debit_histo WHERE (code_hydro=?',CodeStation, 'AND annee<=?',anneeFin,' AND mois<=?',moisFin,' AND jour<=?',jourFin', AND annee>=?',anneeDebut,' AND mois>=?',moisFin,' AND jour>=?',jourFin)
+# SELECT debit_donnee_validee_m3 FROM hydro_debit_histo WHERE (code_hydro=? AND annee<=? AND mois<=? AND jour<=? AND annee>=? AND mois>=? AND jour>=?',(CodeStation,anneeFin,moisFin,jourFin,anneeDebut,moisDebut,jourDebut)))
