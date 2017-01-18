@@ -21,33 +21,45 @@ import json
 class RequestHandler(http.server.SimpleHTTPRequestHandler):
 
   # sous-répertoire racine des documents statiques
-  static_dir = '/clients'
+  static_dir = '/client'
 
   # version du serveur
-  server_version = 'ProjetD_hydrometrie/serveur_projet.py/0.1'
+  server_version = '/Serveur_projet/serveur_projet.py/0.1'
 
   # on surcharge la méthode qui traite les requêtes GET
   def do_GET(self):
     self.init_params()
-    print('iiiiiiiiiiiiiiii',self.path_info)
 
     # requete location - retourne la liste des stations et leurs coordonnées géographiques
     if self.path_info[0] == "location":
         data=[]
         for i in range(175):
-            data.append({'id':i,'name': lieu[i][0] ,'lat':lieu[i][2],'lon':lieu[i][1]}) #importer code cécile
+            data.append({'id':i, 'name': r[i][0] ,'lat':r[i][2],'lon':r[i][1]}) #importer code cécile
         self.send_json(data)
 #On ferra ça quand ça marchera ! (c'est le blabla écrit en dessous de la carte)
-#    # requete description - retourne la description du lieu dont on passe l'id en paramètre dans l'URL
+    # requete description - retourne la description du lieu dont on passe l'id en paramètre dans l'URL
     elif self.path_info[0] == "description":
-        print('laaaaaa', self.path_info)
-        data=[]
+        data2=[]        
         for i in range(175):
-            data.append({'id':i,'name':lieu[i][0],'valeur forte':y[i]})
-        for c in data:
+            data2.append({'id':i,'desc':'a'})
+        for c in data2:
             if c['id'] == int(self.path_info[1]):
                 self.send_json(c)
                 break
+    elif self.path_info[0]=="courbe":
+         data3=[]
+         j=0
+         for i in range(175):
+             code=r[i][3]
+             donneesStation=[]
+             for j in s:
+                 if j[0]==code:
+                     donneesStation.append([j[1],j[5]])
+             data3.append({'id':i,'donnees':donneesStation})
+         self.send_json(data)
+                     
+                     
+          
 
     # requête générique
     elif self.path_info[0] == "service":
@@ -142,5 +154,5 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
 
 
 # instanciation et lancement du serveur
-httpd = socketserver.TCPServer(("", 8095), RequestHandler)
+httpd = socketserver.TCPServer(("", 8102), RequestHandler)
 httpd.serve_forever()
