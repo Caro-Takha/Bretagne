@@ -17,6 +17,17 @@ import socketserver
 from urllib.parse import urlparse, parse_qs
 import json
 
+import datetime
+
+epoch = datetime.datetime.utcfromtimestamp(0)
+
+def unix_time_millis(dt):
+    return (dt - epoch).total_seconds() * 1000.0
+    
+from datetime import datetime
+d = datetime.strptime(s[0][1], '%Y-%m-%d')
+day_string = d.strftime('%Y-%m-%d')
+
 # définition du handler
 class RequestHandler(http.server.SimpleHTTPRequestHandler):
 
@@ -46,6 +57,7 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
             if c['id'] == int(self.path_info[1]):
                 self.send_json(c)
                 break
+            
     elif self.path_info[0]=="courbe":
          data3=[]
          j=0
@@ -54,9 +66,12 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
              donneesStation=[]
              for j in s:
                  if j[0]==code:
-                     donneesStation.append([j[1],j[5]])
+                     donneesStation.append([unix_time_millis(j[1]),j[5]])
              data3.append({'id':i,'donnees':donneesStation})
-         self.send_json(data)
+         for c in data3:
+            if c['id'] == int(self.path_info[1]):
+                self.send_json(c)
+                break
                      
                      
           
@@ -154,5 +169,5 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
 
 
 # instanciation et lancement du serveur
-httpd = socketserver.TCPServer(("", 8102), RequestHandler)
+httpd = socketserver.TCPServer(("", 8107), RequestHandler)
 httpd.serve_forever()
