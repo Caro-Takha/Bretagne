@@ -6,9 +6,26 @@
 
  <head>
   <title>Hydrométrie des rivières bretonnes</title>
-  <link rel="stylesheet" type="text/css" href="style.css"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">  
+  <link rel="stylesheet" type="text/css" href="style2.css"/>
   <link rel="stylesheet" type="text/css" href="leaflet.css" />
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link href="layout.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="jquery-ui/jquery-ui.css">
+  <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="flot/excanvas.min.js"></script><![endif]-->
+  <script language="javascript" type="text/javascript" src="jquery-1.12.4.js"></script>
+  <script language="javascript" type="text/javascript" src="jquery-ui.js"></script>
+  <script language="javascript" type="text/javascript" src="flot/jquery.flot.js"></script>
+
+  
+  <script>
+  $( function() {
+	var availablestations = [ "Lala", "Lalala", "Lalalale" ];
+	$( "#stations" ).autocomplete({
+		source: availablestations
+	} );
+  } );
+  </script>
+  
  </head>
  
  <body onload="load_data();"> 
@@ -17,7 +34,15 @@
   <div id="map"></div>
   <p/>
   
-  <p id="description"></p>
+  <div id="description"></div>
+  
+  <div id="courbe" style="width:780px;height:520px;"></div>
+  
+  <div class="ui-widget">
+  <label for="stations">Stations: </label>
+  <input id="stations">
+  </div>
+  
  </body>
  
 </html>
@@ -29,7 +54,7 @@
  L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
 		attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 		}).addTo(map);
-		
+ 		
  function load_data () {
  var xhr = new XMLHttpRequest();
  xhr.onload = function() {
@@ -50,7 +75,17 @@
  xhr.onload = function() {
 	var data = JSON.parse(this.responseText);
 	description.innerHTML =  '<b><i>' + e.target.getPopup().getContent() + '</i></b><br>'+ data.desc;
-  };
+	var name = data.id;
+	$(function () {
+		var d2 = [{ data: [[0, 3], [4, 8], [8, 5], [9, 13]], label: name, color: "#333" }];
+		var options = {
+			lines: { show: true },
+			points: { show: true }
+		};
+		$.plot($("#courbe"), d2, options);
+	});
+};
+
  xhr.open('GET','/description/'+e.target.idnum,true);
  xhr.send();
  }
