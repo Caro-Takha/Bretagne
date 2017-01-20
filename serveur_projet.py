@@ -62,11 +62,15 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
          j=0
          for i in range(175):
              code=r[i][3]
-             donneesStation=[]
+             donneesValeurForte=[]
+             donneesValeurFaible=[]
+             donneesDebitValide=[]
              for j in s:
                  if j[0]==code:
-                     donneesStation.append([unix_time_millis(j[1]),j[5]])
-             data3.append({'id':i,'donnees':donneesStation})
+                     donneesValeurForte.append([unix_time_millis(j[1]),j[5]])
+                     donneesValeurFaible.append([unix_time_millis(j[1]),j[3]])
+                     donneesDebitValide.append([unix_time_millis(j[1]),j[7]])
+             data3.append({'id':i,'ValeurForte':donneesValeurForte,'ValeurFaible':donneesValeurFaible,'DebitValide':donneesDebitValide})
          for c in data3:
             if c['id'] == int(self.path_info[1]):
                 self.send_json(c)
@@ -168,5 +172,5 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
 
 
 # instanciation et lancement du serveur
-httpd = socketserver.TCPServer(("", 8110), RequestHandler)
+httpd = socketserver.TCPServer(("", 8111), RequestHandler)
 httpd.serve_forever()
