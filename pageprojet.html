@@ -36,6 +36,8 @@
   
   <div id="courbe" style="width:42vw;height:60vh;"></div>
   
+  <p id="choices">Afficher:</p>
+  
   <div class="ui-widget">
   <label for="stations">Stations: </label>
   <input id="stations">
@@ -177,6 +179,7 @@
  var map = L.map('map').setView([48.4,-2.917], 8);
  var d = null;
  var availablestations = [];
+ var clicked = false;
  
  L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
 		attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -204,13 +207,71 @@
 	var data = JSON.parse(this.responseText);
 	var name = data.id;
 	d = [{ data: data.donnees, label: name, color: "blue" }];
+	<!-- $(function () {  -->
+		<!-- var options = { -->
+			<!-- lines: { show: true }, -->
+			<!-- xaxis: { mode: "time" }, -->
+		<!-- }; -->
+		<!-- $.plot($("#courbe"), d, options); -->
+		<!-- }); -->
 	$(function () {
-		var options = {
-			lines: { show: true },
-			xaxis: { mode: "time" },
-		};
-		$.plot($("#courbe"), d, options);
-		});
+    var datasets = {
+        "vforte": {
+            label: "Valeur forte",
+            data: data.ValeurForte
+        },        
+        "vfaible": {
+            label: "Valeur faible",
+            data: data.ValeurFaible
+        },
+        <!-- "vtresfaible": { -->
+            <!-- label: "Valeur très faible", -->
+            <!-- data: data.ValeurTresFaible -->
+        <!-- }, -->
+        "debitvalide": {
+            label: "Débit validé",
+            data: data.DebitValide
+        },
+    };
+
+    // hard-code color indices to prevent them from shifting as
+    // countries are turned on/off
+    var i = 0;
+    $.each(datasets, function(key, val) {
+        val.color = i;
+        ++i;
+    });
+    
+	document.getElementById("choices").innerHTML ="";
+    // insert checkboxes 
+    var choiceContainer = $("#choices");	
+    $.each(datasets, function(key, val) {
+        choiceContainer.append('<br/><input type="checkbox" name="' + key +
+                               '" checked="checked" id="id' + key + '">' +
+                               '<label for="id' + key + '">'
+                                + val.label + '</label>');
+    });
+    choiceContainer.find("input").click(plotAccordingToChoices);
+
+    
+    function plotAccordingToChoices() {
+        var d = [];
+
+        choiceContainer.find("input:checked").each(function () {
+            var key = $(this).attr("name");
+            if (key && datasets[key])
+                d.push(datasets[key]);
+        });
+
+        if (d.length > 0)
+            $.plot($("#courbe"), d, {
+                yaxis: { min: 0 },
+                xaxis: { mode:"time" }
+            });
+    }
+
+    plotAccordingToChoices();
+}); 
 };
  xhr.open('GET','/courbe/'+e.target.idnum,true);
  xhr.send();
