@@ -44,7 +44,14 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
     if self.path_info[0] == "location":
         data=[]
         for i in range(175):
-            data.append({'id':i, 'name': r[i][0] ,'lat':r[i][2],'lon':r[i][1]}) #importer code cécile
+            apparitions=0
+            for j in s:
+                if j[0]==r[i][3]:
+                    apparitions+=1
+            if apparitions>0:
+                data.append({'id':i, 'name': r[i][0] ,'lat':r[i][2],'lon':r[i][1],'score':1}) 
+            else:
+                data.append({'id':i, 'name': r[i][0] ,'lat':r[i][2],'lon':r[i][1],'score':0})
         self.send_json(data)
 #On ferra ça quand ça marchera ! (c'est le blabla écrit en dessous de la carte)
     # requete description - retourne la description du lieu dont on passe l'id en paramètre dans l'URL
@@ -174,5 +181,5 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
 
 
 # instanciation et lancement du serveur
-httpd = socketserver.TCPServer(("", 8114), RequestHandler)
+httpd = socketserver.TCPServer(("", 8115), RequestHandler)
 httpd.serve_forever()
