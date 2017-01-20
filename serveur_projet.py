@@ -16,17 +16,16 @@ import http.server
 import socketserver
 from urllib.parse import urlparse, parse_qs
 import json
-
 import datetime
 
 epoch = datetime.datetime.utcfromtimestamp(0)
+from datetime import datetime
 
 def unix_time_millis(dt):
-    return (dt - epoch).total_seconds() * 1000.0
+    d = datetime.strptime(dt, '%Y-%m-%d')
+    return (d - epoch).total_seconds() * 1000.0
     
-from datetime import datetime
-d = datetime.strptime(s[0][1], '%Y-%m-%d')
-day_string = d.strftime('%Y-%m-%d')
+
 
 # définition du handler
 class RequestHandler(http.server.SimpleHTTPRequestHandler):
@@ -169,5 +168,5 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
 
 
 # instanciation et lancement du serveur
-httpd = socketserver.TCPServer(("", 8107), RequestHandler)
+httpd = socketserver.TCPServer(("", 8110), RequestHandler)
 httpd.serve_forever()
