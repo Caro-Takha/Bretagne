@@ -17,13 +17,13 @@
   <script language="javascript" type="text/javascript" src="flot/jquery.flot.js"></script>
 
   
-  <script>
-  $( function() }
-	$( "#stations" ).autocomplete({
-		source: availablestations
-	} );
-  } );
-  </script>
+  <!-- <script> -->
+  <!-- $( function() } -->
+	<!-- $( "#stations" ).autocomplete({ -->
+		<!-- source: availablestations -->
+	<!-- } ); -->
+  <!-- } ); -->
+  <!-- </script> -->
 
   
  </head>
@@ -36,12 +36,12 @@
   
   <div id="courbe" style="width:42vw;height:60vh;"></div>
   
-  <p id="choices">Afficher:</p>
+  <p id="choices"></p>
   
-  <div class="ui-widget">
-  <label for="stations">Stations: </label>
-  <input id="stations">
-  </div>
+  <!-- <div class="ui-widget"> -->
+  <!-- <label for="stations">Stations: </label> -->
+  <!-- <input id="stations"> -->
+  <!-- </div> -->
   
   <p id="choixdate">Date de départ :
    <label>Jour :
@@ -177,7 +177,7 @@
 <script>
 
  var map = L.map('map').setView([48.4,-2.917], 8);
- var d = null;
+ var datasets = null;
  var availablestations = [];
  var clicked = false;
  
@@ -206,16 +206,8 @@
  xhr.onload = function() {
 	var data = JSON.parse(this.responseText);
 	var name = data.id;
-	d = [{ data: data.donnees, label: name, color: "blue" }];
-	<!-- $(function () {  -->
-		<!-- var options = { -->
-			<!-- lines: { show: true }, -->
-			<!-- xaxis: { mode: "time" }, -->
-		<!-- }; -->
-		<!-- $.plot($("#courbe"), d, options); -->
-		<!-- }); -->
 	$(function () {
-    var datasets = {
+    datasets = {
         "vforte": {
             label: "Valeur forte",
             data: data.ValeurForte
@@ -224,10 +216,10 @@
             label: "Valeur faible",
             data: data.ValeurFaible
         },
-        <!-- "vtresfaible": { -->
-            <!-- label: "Valeur très faible", -->
-            <!-- data: data.ValeurTresFaible -->
-        <!-- }, -->
+        "vtresfaible": {
+            label: "Valeur très faible",
+            data: data.ValeurTresFaible
+        },
         "debitvalide": {
             label: "Débit validé",
             data: data.DebitValide
@@ -278,21 +270,85 @@
  }
  
  function Clickbuttondate(){
-	$.plot($("#courbe"), d, {
-		lines: { show: true },
-		xaxis: { 
-			mode: "time",
-			min: (new Date(document.getElementById("anneed").options[document.getElementById("anneed").selectedIndex].text, document.getElementById("moisd").options[document.getElementById("moisd").selectedIndex].text -1, document.getElementById("jourd").options[document.getElementById("jourd").selectedIndex].text -1)).getTime(),
-			max: (new Date(document.getElementById("anneea").options[document.getElementById("anneea").selectedIndex].text, document.getElementById("moisa").options[document.getElementById("moisa").selectedIndex].text -1, document.getElementById("joura").options[document.getElementById("joura").selectedIndex].text -1)).getTime(),
-		}
-	});
+		$(function () {
+    var i = 0;
+    $.each(datasets, function(key, val) {
+        val.color = i;
+        ++i;
+    });
+    
+	document.getElementById("choices").innerHTML ="";
+    // insert checkboxes 
+    var choiceContainer = $("#choices");	
+    $.each(datasets, function(key, val) {
+        choiceContainer.append('<br/><input type="checkbox" name="' + key +
+                               '" checked="checked" id="id' + key + '">' +
+                               '<label for="id' + key + '">'
+                                + val.label + '</label>');
+    });
+    choiceContainer.find("input").click(plotAccordingToChoices);
+
+    
+    function plotAccordingToChoices() {
+        var d = [];
+
+        choiceContainer.find("input:checked").each(function () {
+            var key = $(this).attr("name");
+            if (key && datasets[key])
+                d.push(datasets[key]);
+        });
+
+        if (d.length > 0)
+            $.plot($("#courbe"), d, {
+                yaxis: { min: 0 },
+                xaxis: { 
+				mode:"time",
+				min: (new Date(document.getElementById("anneed").options[document.getElementById("anneed").selectedIndex].text, document.getElementById("moisd").options[document.getElementById("moisd").selectedIndex].text -1, document.getElementById("jourd").options[document.getElementById("jourd").selectedIndex].text -1)).getTime(),
+				max: (new Date(document.getElementById("anneea").options[document.getElementById("anneea").selectedIndex].text, document.getElementById("moisa").options[document.getElementById("moisa").selectedIndex].text -1, document.getElementById("joura").options[document.getElementById("joura").selectedIndex].text -1)).getTime(),
+				}
+            });
+    }
+    plotAccordingToChoices();
+}); 
 };
 
  function Clickbuttongen(){
-	$.plot($("#courbe"), d, {
-		lines: { show: true },
-		xaxis: { mode: "time" }
-	});
+		$(function () {
+    var i = 0;
+    $.each(datasets, function(key, val) {
+        val.color = i;
+        ++i;
+    });
+    
+	document.getElementById("choices").innerHTML ="";
+    // insert checkboxes 
+    var choiceContainer = $("#choices");	
+    $.each(datasets, function(key, val) {
+        choiceContainer.append('<br/><input type="checkbox" name="' + key +
+                               '" checked="checked" id="id' + key + '">' +
+                               '<label for="id' + key + '">'
+                                + val.label + '</label>');
+    });
+    choiceContainer.find("input").click(plotAccordingToChoices);
+
+    
+    function plotAccordingToChoices() {
+        var d = [];
+
+        choiceContainer.find("input:checked").each(function () {
+            var key = $(this).attr("name");
+            if (key && datasets[key])
+                d.push(datasets[key]);
+        });
+
+        if (d.length > 0)
+            $.plot($("#courbe"), d, {
+                yaxis: { min: 0 },
+                xaxis: { mode:"time" }
+            });
+    }
+    plotAccordingToChoices();
+}); 
 };
 
 </script>
