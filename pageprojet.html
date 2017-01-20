@@ -42,7 +42,7 @@
   <!-- <label for="stations">Stations: </label> -->
   <!-- <input id="stations"> -->
   <!-- </div> -->
-  
+
   <p id="choixdate">Date de départ :
    <label>Jour :
    <select id="jourd">
@@ -184,14 +184,33 @@
  L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
 		attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 		}).addTo(map);
- 		
+ 
+ var myIcon = L.icon({
+    iconUrl: '/images/marker-icon2.png',
+    shadowUrl: '/images/marker-shadow.png',
+    shadowAnchor: [13, 39],
+    iconSize: [35, 35],
+    iconAnchor: [17, 34],
+    popupAnchor:  [0, -30]
+  }),
+  myIcon2 = L.icon({
+    iconUrl: '/images/marker-icon.png',
+    shadowUrl: '/images/marker-shadow.png',
+    shadowAnchor: [12, 40],
+    iconSize: [25, 41],
+    iconAnchor:   [12, 40],
+    popupAnchor:  [0, -36]
+  });
+
+
  function load_data () {
  var xhr = new XMLHttpRequest();
  xhr.onload = function() {
    	var data = JSON.parse(this.responseText);
      for ( n = 0; n < data.length; n++ ) {
 	  availablestations.push(data[n].name);
-	  L.marker([data[n].lat,data[n].lon]).addTo(map)
+      var icon = data[n].score === 1 ? myIcon2 : myIcon;
+	  L.marker([data[n].lat,data[n].lon],{icon:icon}).addTo(map)
         .bindPopup('Lieu = '+data[n].name)
 		.addEventListener('click',OnMarkerClick)
 		.idnum=data[n].id; 
