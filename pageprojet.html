@@ -10,7 +10,7 @@
   <link rel="stylesheet" type="text/css" href="style3.css"/>
   <link rel="stylesheet" type="text/css" href="leaflet.css" />
   <link href="layout.css" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="jquery-ui/jquery-ui.css">
+  <link rel="stylesheet" href="jquery-ui.css">
   <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="flot/excanvas.min.js"></script><![endif]-->
   <script language="javascript" type="text/javascript" src="jquery-1.12.4.js"></script>
   <script language="javascript" type="text/javascript" src="jquery-ui.js"></script>
@@ -18,13 +18,13 @@
 
   
   <script>
-  $( function() {
-	var availablestations = [ "Lala", "Lalala", "Lalalale" ];
+  $( function() }
 	$( "#stations" ).autocomplete({
 		source: availablestations
 	} );
   } );
   </script>
+
   
  </head>
  
@@ -34,8 +34,6 @@
   <div id="map"></div>
   <p/>
   
-  <div id="description"></div>
-  
   <div id="courbe" style="width:42vw;height:60vh;"></div>
   
   <div class="ui-widget">
@@ -43,14 +41,143 @@
   <input id="stations">
   </div>
   
+  <p id="choixdate">Date de départ :
+   <label>Jour :
+   <select id="jourd">
+    <option>1</option>
+	<option>2</option>
+	<option>3</option>
+	<option>4</option>
+	<option>5</option>
+	<option>6</option>
+	<option>7</option>
+	<option>8</option>
+	<option>9</option>
+	<option>10</option>
+	<option>11</option>
+	<option>12</option>
+	<option>13</option>
+	<option>14</option>
+	<option>15</option>
+	<option>16</option>
+	<option>17</option>
+	<option>18</option>
+	<option>19</option>
+	<option>20</option>
+	<option>21</option>
+	<option>22</option>
+	<option>23</option>
+	<option>24</option>
+	<option>25</option>
+	<option>26</option>
+	<option>27</option>
+	<option>28</option>
+	<option>29</option>
+	<option>30</option>
+	<option>31</option>
+   </select>
+   </label>
+   
+   <label>Mois :
+   <select id="moisd">
+    <option>1</option>
+	<option>2</option>
+	<option>3</option>
+	<option>4</option>
+	<option>5</option>
+	<option>6</option>
+	<option>7</option>
+	<option>8</option>
+	<option>9</option>
+	<option>10</option>
+	<option>11</option>
+	<option>12</option>
+   </select>
+   </label>
+   
+   <label>Année :
+   <select id="anneed">
+    <option>2015</option>
+	<option>2016</option>
+   </select>
+   </label><br>
+   Date d'arrivée : 
+      <label>Jour :
+   <select id="joura">
+    <option>1</option>
+	<option>2</option>
+	<option>3</option>
+	<option>4</option>
+	<option>5</option>
+	<option>6</option>
+	<option>7</option>
+	<option>8</option>
+	<option>9</option>
+	<option>10</option>
+	<option>11</option>
+	<option>12</option>
+	<option>13</option>
+	<option>14</option>
+	<option>15</option>
+	<option>16</option>
+	<option>17</option>
+	<option>18</option>
+	<option>19</option>
+	<option>20</option>
+	<option>21</option>
+	<option>22</option>
+	<option>23</option>
+	<option>24</option>
+	<option>25</option>
+	<option>26</option>
+	<option>27</option>
+	<option>28</option>
+	<option>29</option>
+	<option>30</option>
+	<option>31</option>
+   </select>
+   </label>
+   
+   <label>Mois :
+   <select id="moisa">
+    <option>1</option>
+	<option>2</option>
+	<option>3</option>
+	<option>4</option>
+	<option>5</option>
+	<option>6</option>
+	<option>7</option>
+	<option>8</option>
+	<option>9</option>
+	<option>10</option>
+	<option>11</option>
+	<option>12</option>
+   </select>
+   </label>
+   
+   <label>Année :
+   <select id="anneea">
+    <option>2015</option>
+	<option>2016</option>
+   </select>
+   </label><br>
+   
+   <button id="dateb" onclick="Clickbuttondate();">OK</button><br>
+   
+   <button id="vuegenerale" onclick="Clickbuttongen();">Vue générale</button>
+   
+  </p>
+  
  </body>
  
 </html>
-
+		
 <script>
 
  var map = L.map('map').setView([48.4,-2.917], 8);
-
+ var d = null;
+ var availablestations = [];
+ 
  L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
 		attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 		}).addTo(map);
@@ -60,6 +187,7 @@
  xhr.onload = function() {
    	var data = JSON.parse(this.responseText);
      for ( n = 0; n < data.length; n++ ) {
+	  availablestations.push(data[n].name);
 	  L.marker([data[n].lat,data[n].lon]).addTo(map)
         .bindPopup('Lieu = '+data[n].name)
 		.addEventListener('click',OnMarkerClick)
@@ -74,19 +202,36 @@
  var xhr = new XMLHttpRequest();
  xhr.onload = function() {
 	var data = JSON.parse(this.responseText);
-	description.innerHTML =  '<b><i>' + e.target.getPopup().getContent() + '</i></b><br>'+ data.desc;
 	var name = data.id;
+	d = [{ data: data.donnees, label: name, color: "blue" }];
 	$(function () {
-		var d2 = [{ data: [[0, 3], [4, 8], [8, 5], [9, 13]], label: name, color: "#333" }];
 		var options = {
 			lines: { show: true },
-			points: { show: true }
+			xaxis: { mode: "time" },
 		};
-		$.plot($("#courbe"), d2, options);
+		$.plot($("#courbe"), d, options);
+		});
+};
+ xhr.open('GET','/courbe/'+e.target.idnum,true);
+ xhr.send();
+ }
+ 
+ function Clickbuttondate(){
+	$.plot($("#courbe"), d, {
+		lines: { show: true },
+		xaxis: { 
+			mode: "time",
+			min: (new Date(document.getElementById("anneed").options[document.getElementById("anneed").selectedIndex].text, document.getElementById("moisd").options[document.getElementById("moisd").selectedIndex].text -1, document.getElementById("jourd").options[document.getElementById("jourd").selectedIndex].text -1)).getTime(),
+			max: (new Date(document.getElementById("anneea").options[document.getElementById("anneea").selectedIndex].text, document.getElementById("moisa").options[document.getElementById("moisa").selectedIndex].text -1, document.getElementById("joura").options[document.getElementById("joura").selectedIndex].text -1)).getTime(),
+		}
 	});
 };
 
- xhr.open('GET','/description/'+e.target.idnum,true);
- xhr.send();
- }
+ function Clickbuttongen(){
+	$.plot($("#courbe"), d, {
+		lines: { show: true },
+		xaxis: { mode: "time" }
+	});
+};
+
 </script>
